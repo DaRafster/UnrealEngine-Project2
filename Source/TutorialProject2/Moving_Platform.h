@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "MovingPlatform.generated.h"
+#include "Moving_Platform.generated.h"
 
 UCLASS()
-class TUTORIALPROJECT2_API AMovingPlatform : public AActor
+class TUTORIALPROJECT2_API AMoving_Platform : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AMovingPlatform();
+	AMoving_Platform();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,5 +23,11 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	FVector myVector = FVector(1, 2, 3);
+	UPROPERTY(EditAnywhere, Category = "Moving Platform");
+	FVector PlatformVelocity = FVector(100, 0, 0);
+
+	UPROPERTY(EditAnywhere, Category = "Moving Platform");
+	float MoveDistance = 100;
+	
+	FVector StartLocation;
 };
